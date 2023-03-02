@@ -1,2 +1,10 @@
 int god_start();
+int green();
+int grab_cube();
+int deliver_cube();
+int green_two();
+int red_stack();
+int green_stack();
 int noodles();
+int botgal();
+int end();

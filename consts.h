@@ -8,6 +8,7 @@ int arm;
 int light;
 int midpoint;
 int midpoint;
+int fET;
 
 int claw_min;
 int claw_max;

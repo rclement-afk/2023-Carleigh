@@ -5,7 +5,7 @@ int arm = 1;
 int claw = 2;
 int rIR = 0;
 int lIR = 1;
-int fET = 4;
+int fET = 5;
 int light = 3;
 
 //
@@ -18,8 +18,8 @@ int analog_white = 160;
 int analog_black = 2960;
 int midpoint = 2000;
 
-int tprL = 1832;
-int tprR = 1831;
+int tprL = 1803;
+int tprR = 1803;
 
 float wheel = 8.6394;
 

@@ -1,40 +1,60 @@
 #include <kipr/wombat.h>
 #include <functions.h>
 #include <consts.h>
+#include <timer.h>
 
 int Rspd;
 int Lspd;
 
-float t_bias = 0.85;
+float t_bias = 0.89;
 //54.3
-float d_bias = 66;
-/*
+float d_bias = 53.5;
+
 void find_cube(){
     //far to close, when hit far again, go back
-    int min = buffer(fET);
-    int max = 2090; //close
     int old = buffer(fET);
-    int new;
+    int new = buffer(fET) + 10;
     int corner;
+    reset_timer(5);
+    int i = 0;
     //new val - old val : if old val > new val (3 times consequtively?), reached end of corner
     //old = first val
     //new = val after first
-	while(1){
-    	while(new - old >= new){
-        	in_turn(2,400);
-            new = buffer(ET);
-            if(new - old < new){
+	while(timer(5) < 4){
+    	while(new > old && timer(5) < 4){
+            old = buffer(fET);
+            printf("%d old et\n",old);
+        	move(300,-300);
+            msleep(100);
+            stop_it();
+            new = buffer(fET);
+            printf("%d new et\n",new);
+            
+            if(new < old){
+                printf("found corner");
             	corner = old;
-                int i = 0;
-                while(i<0){
-                	in_turn(2,100);
-                    if(buffer(ET) < 
+                i = 0;
+                while(i<3){
+                	move(300,-300);
+                    msleep(100);
+                    stop_it();
+                    if(buffer(fET) < corner){i++;}else{printf(" %d brokkn ",i); break;}
                 }
+            	if(i==2){stop_it(); printf("omg a corner"); reset_timer(5); break;}
             }
-            old = new;
         }
+        while(i ==2 && timer(5)<1.5){
+            //printf("hellooo");
+        	move(-50,50);
+            msleep(100);
+            stop_it();
+            if(buffer(ET) >= corner){stop_it(); return;}
+        }
+        
+        //}//
     }
-*/
+}
+    
 void stop_it(){
 	mav(ML,0);
     mav(MR, 0);
@@ -98,6 +118,7 @@ void in_turn(int deg,int spd){
     float ipd = (turn_rad*2*3.14)/360;
     //float rpd = ipd/wheel;
     //printf("ipd %f\n",ipd);
+    printf("turning: %d deg\n",deg);
 	if(deg > 0){
         int ticks = ipd*deg; 
         int ticks1 = t_bias*(itt(tprL,ticks));

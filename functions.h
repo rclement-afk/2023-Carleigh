@@ -1,4 +1,5 @@
 //main functs
+void find_cube();
 void stop_it();
 void line_follow(int side, int speed);
 void slow_servo(int part, int des, int speed);
