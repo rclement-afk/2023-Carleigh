@@ -117,18 +117,33 @@ int green_two(){
 int stacks(){
     //in_drive(dspd,1);
     in_turn(-90,tspd);
-    slow_servo(arm,arm_min+700,1);
-    in_drive(-1*dspd,8);
+    slow_servo(arm,arm_min+700,2);
+    in_drive(-1*dspd,11);
     square_up(2,-1*sqspd);
     stop_it();
     in_drive(dspd,14);
-    in_turn(40,tspd);
-    in_drive(dspd,3);
-     slow_servo(arm,arm_min+450,1);
-    
+    slow_servo(arm,arm_min+500,1);
+    in_turn(33,tspd);
+    in_drive(dspd,3.7); 
     slow_servo(claw,claw_min,2);
-    
-    
+    in_drive(dspd,4);
+    in_turn(65,tspd);
+    square_up(2,-1*sqspd);
+    in_drive(dspd,6);
+    slow_servo(claw,claw_max,2);
+    slow_servo(arm,arm_min+600,1);
+    in_turn(-95,tspd);
+    in_drive(-1*dspd,2);
+    slow_servo(arm,arm_min+495,1);
+    in_drive(dspd,6);
+    slow_servo(claw,claw_min,2);
+    in_turn(-40,tspd);
+    slow_servo(arm,arm_min+200,1);
+    in_drive(dspd,2);
+    in_turn(70,tspd);
+    in_drive(dspd,2);
+    slow_servo(arm,arm_min+400,1);
+    in_turn(-210,tspd);
 	return end();
 }
 int end(){
