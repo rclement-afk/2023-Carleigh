@@ -8,7 +8,7 @@ int Lspd;
 
 float t_bias = 0.89;
 //54.3
-float d_bias = 53.5;
+float d_bias = 47;
 
 void find_cube(){
     //far to close, when hit far again, go back
@@ -20,8 +20,8 @@ void find_cube(){
     //new val - old val : if old val > new val (3 times consequtively?), reached end of corner
     //old = first val
     //new = val after first
-	while(timer(5) < 4){
-    	while(new > old && timer(5) < 4){
+	while(timer(5) < 3){
+    	while(new > old && timer(5) < 3){
             old = buffer(fET);
             printf("%d old et\n",old);
         	move(300,-300);
@@ -43,7 +43,7 @@ void find_cube(){
             	if(i==2){stop_it(); printf("omg a corner"); reset_timer(5); break;}
             }
         }
-        while(i ==2 && timer(5)<1.5){
+        while(i ==2 && timer(5)<1){
             //printf("hellooo");
         	move(-50,50);
             msleep(100);

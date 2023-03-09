@@ -9,8 +9,8 @@ int fET = 5;
 int light = 3;
 
 //
-int claw_max = 1300;
-int claw_min = 200;
+int claw_max = 1800;
+int claw_min = 730;
 int arm_max = 1700;
 int arm_min = 200; 
 //
@@ -19,7 +19,7 @@ int analog_black = 2960;
 int midpoint = 2000;
 
 int tprL = 1803;
-int tprR = 1803;
+int tprR = 1804;
 
 float wheel = 8.6394;
 
