@@ -8,7 +8,7 @@ int Lspd;
 
 float t_bias = 0.89;
 //54.3
-float d_bias = 47;
+float d_bias = 18;
 
 void find_cube(){
     //far to close, when hit far again, go back

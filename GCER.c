@@ -55,7 +55,7 @@ int grab_cube(){
     	find_cube();
     }
     slow_servo(arm,arm_min+500,1);
-    in_drive(dspd,4.1);
+    in_drive(dspd,4.5);
     slow_servo(claw,claw_min,2);
     return deliver_cube();
 }
@@ -96,6 +96,7 @@ int green_two(){
     in_turn(-25,tspd);
     in_drive(dspd,2);
     square_up(2,sqspd);
+    square_up(2,sqspd);
     
     in_drive(dspd,6);
     in_turn(120,tspd+50);
@@ -104,57 +105,76 @@ int green_two(){
     in_turn(60,tspd);
     in_drive(-1*dspd,4);
     square_up(2,-1*sqspd);
+     square_up(2,-1*sqspd);
     in_turn(50,tspd);
     //in_drive(dspd,3);
     slow_servo(claw,claw_max,2);
     slow_servo(arm,arm_min+500,1);
-    in_drive(-1*dspd,1.5);
+    in_drive(-1*dspd,1.7);
     in_turn(-45,tspd);
     square_up(2,sqspd);
-    
+    square_up(2,sqspd);
 	return stacks();
 }
 int stacks(){
     //in_drive(dspd,1);
-    in_turn(-90,tspd);
-    slow_servo(arm,arm_min+600,1);
+    in_turn(-83,tspd);
+    slow_servo(arm,arm_min+750,1);
     in_drive(-1*dspd,11);
     square_up(2,-1*sqspd);
+      square_up(2,-1*sqspd);
     stop_it();
-    in_drive(dspd,14);
-    slow_servo(arm,arm_min+500,1);
-    in_turn(33,tspd);
-    in_drive(dspd,3.7); 
+    in_drive(dspd,17.5);
+    in_turn(28,tspd);
+    slow_servo(arm,arm_min+570,1);
+    stop_it();
+    in_drive(400,1); 
     slow_servo(claw,claw_min,2);
     slow_servo(arm,arm_min+600,1);
-    in_drive(dspd,4);
+    in_drive(dspd,3);
+    slow_servo(arm,arm_min+500,1);
     in_turn(65,tspd);
     square_up(2,-1*sqspd);
     in_drive(dspd,6);
     slow_servo(claw,claw_max,2);
-    slow_servo(arm,arm_min+600,1);
-    in_turn(-95,tspd);
+    slow_servo(arm,arm_min+550,1);
+    in_drive(-1*dspd,5);
+    square_up(2,-1*sqspd);
+    in_drive(dspd,7);
+    in_turn(-90,tspd);
     in_drive(-1*dspd,6);
     slow_servo(arm,arm_min+100,1);
-    in_drive(dspd,6);
-    slow_servo(claw,claw_min+200,2);
+    in_drive(dspd,5);
+    slow_servo(claw,claw_min+150,1);
     msleep(300);
     in_turn(-200,tspd);
-    
-    /*
-    slow_servo(arm,arm_min+495,1);
-    in_drive(dspd,6);
+    in_drive(dspd,8);
+     slow_servo(claw,claw_max,2);
+    in_drive(-1*dspd,2);
+     slow_servo(arm,arm_min+600,1);
+    in_turn(15,tspd);
+    square_up(2,sqspd);
+    square_up(2,sqspd);
+    in_drive(-1*dspd,8);
+    square_up(2,-1*sqspd);
+    in_drive(-1*dspd,9);
+    in_turn(90,tspd);
+    square_up(2,-1*sqspd);
+    in_drive(-1*dspd,12);
+    slow_servo(arm,arm_min+700,1);
+    in_turn(40,tspd);
+    in_drive(dspd,1);
+    slow_servo(arm,arm_min+570,1);
+    stop_it();
+    in_drive(400,1); 
     slow_servo(claw,claw_min,2);
-    in_turn(-40,tspd);
-    slow_servo(arm,arm_min+200,1);
-    in_drive(dspd,2);
-    in_turn(70,tspd);
-    in_drive(dspd,2);
-    slow_servo(arm,arm_min+400,1);
-    in_turn(-210,tspd);
-    */
+    in_turn(-42,tspd);
+     in_drive(dspd,1);
+    slow_servo(arm,arm_min+100,1);
+    in_turn(80,tspd);
 	return end();
 }
+ 
 int end(){
     console_clear();
     printf("\n%d time\n",timer(1));
