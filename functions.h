@@ -1,4 +1,7 @@
 //main functs
+void to_pos(int m, int pos);
+void reset_claw();
+void reset_arc();
 void find_cube();
 void stop_it();
 void line_follow(int side, int speed);

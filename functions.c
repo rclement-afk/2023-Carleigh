@@ -6,9 +6,48 @@
 int Rspd;
 int Lspd;
 
+void to_pos(int m, int pos){
+    cmpc(m);
+	if(gmpc(m)<pos){
+    	while(gmpc(m) < pos){
+        	motor(m,20);
+        }
+        motor(m,0);
+    }
+    if(gmpc(m)>pos){
+    	while(gmpc(m) > pos){
+        	motor(m,-20);
+        }
+        motor(m,0);
+    }
+}
+
+void reset_claw()
+{
+    while(digital(mclick)==0)//reset the claws
+    {
+        motor(mclaw,20);
+    }
+    motor(mclaw,0);
+    msleep(300);
+
+}
+
+void reset_arc()
+{
+    while(digital(mbutton)==0)//reset the arc
+    {
+        motor(marm,-10);
+        msleep(5);
+    }
+    motor(marm,0);
+    cmpc(3);
+
+}
+
 float t_bias = 0.89;
 //54.3
-float d_bias = 18;
+float d_bias = 12;
 
 void find_cube(){
     //far to close, when hit far again, go back
@@ -20,8 +59,8 @@ void find_cube(){
     //new val - old val : if old val > new val (3 times consequtively?), reached end of corner
     //old = first val
     //new = val after first
-	while(timer(5) < 3){
-    	while(new > old && timer(5) < 3){
+	while(timer(5) < 1){
+    	while(new > old && timer(5) < 1){
             old = buffer(fET);
             printf("%d old et\n",old);
         	move(300,-300);
